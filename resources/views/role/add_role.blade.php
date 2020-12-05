@@ -7,8 +7,8 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Role Name</label>
-                        <input type="text" class="form-control" name="role_name"  placeholder="Enter Role Name">
-                        @error('role_name')
+                        <input type="text" class="form-control" name="name"  placeholder="Enter Role Name">
+                        @error('name')
                             {{ $message }}
                         @enderror
                     </div>

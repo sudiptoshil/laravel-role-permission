@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+
 class RoleController extends Controller
 {
     /**
@@ -12,8 +13,9 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $allRole = Role::all();
-        return view('role.manage_role',compact('allRole'));
+    {
+        $allRole = Role::all();
+        return view('role.manage_role', compact('allRole'));
     }
     // last video length 16 minute / fulstack web video no 2 / thursday
 
@@ -36,11 +38,12 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'role_name'=>'required|max:12'
+            'name' => 'required|max:12',
         ]);
-        $addRole = new Role();
-        $addRole->name = $request->role_name;
-        $addRole->save();
+        // $addRole = new Role();
+        // $addRole->name = $request->role_name;
+        // $addRole->save();
+        Role::create($request->all());
         return redirect()->route('role.index');
     }
 
@@ -63,7 +66,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        // dd($role);
+        return view('role.edit_role', compact('role'));
     }
 
     /**
@@ -75,7 +79,11 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:12',
+        ]);
+        $role->update($request->all());
+        return redirect()->route('role.index');
     }
 
     /**
@@ -86,6 +94,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        // dd($role);
+        $role->delete();
+        return redirect()->route('role.index');
     }
 }

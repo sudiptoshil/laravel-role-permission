@@ -22,7 +22,7 @@
                         </a>
                         <a href="" class="list-group-item list-group-item-action">User</a>
                         <a href="{{ route('role.index') }}" class="list-group-item list-group-item-action">Roles</a>
-                        <a href="#" class="list-group-item list-group-item-action">Permission</a>
+                        <a href="{{ route('permission.index') }}" class="list-group-item list-group-item-action">Permission</a>
                     </div>
                 </div>
             </div>
