@@ -72,7 +72,7 @@
                                 <div class="col-md-6">
                                     <select name="role_id" id="" class="form-control">
                                         <option value="">Please Select One</option>
-                                        @foreach(\App\Model\Role::all() as $role)
+                                        @foreach(\App\Models\Role::all() as $role)
                                         <option value="{{$role->id}}">{{$role->name}}</option>
                                             @endforeach
                                     </select>

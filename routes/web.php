@@ -26,11 +26,15 @@ Route::get('/user-panel', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','userPermission']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('role','App\Http\Controllers\RoleController');
     Route::resource('permission','App\Http\Controllers\PermissionController');
+    Route::resource('user', 'App\Http\Controllers\UserController');
+
 });
+
+
 
 // Route::get('/sms/send/{to}', function(\Nexmo\Client $nexmo, $to){
 //     $message = $nexmo->message()->send([

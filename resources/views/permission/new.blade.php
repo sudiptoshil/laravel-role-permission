@@ -21,7 +21,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             <div class="col-md-8">
-                <table>
+                <table class="table">
                     <thead>
                     <tr>
                         <th>Permission</th>

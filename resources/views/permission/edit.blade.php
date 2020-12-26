@@ -30,7 +30,7 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 <div class="col-md-8">
-                    <table class="responsive-table-input-matrix">
+                    <table class="table responsive-table-input-matrix ">
                         <thead>
                         <tr>
                             <th>Permission</th>

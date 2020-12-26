@@ -9,11 +9,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            {{-- @isset(auth()->user()->role->permission['permission']['permission']['add']) --}}
+            @isset(auth()->user()->role->permission['permission']['permission']['add'])
                 <h4 class="float-right">
                     <a class="btn btn-primary" href="{{route('permission.create')}}">Add New</a>
                 </h4>
-            {{-- @endisset --}}
+            @endisset
             <table class="table">
 
                 <thead>
@@ -32,13 +32,13 @@
                             <form action="{{route('permission.destroy',$permission->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                {{-- @isset(auth()->user()->role->permission['permission']['permission']['edit']) --}}
+                                @isset(auth()->user()->role->permission['permission']['permission']['edit'])
                                     <a href="{{route('permission.edit',$permission->id)}}"
                                        class="btn btn-warning">Edit</a>
-                                {{-- @endisset --}}
-                                {{-- @isset(auth()->user()->role->permission['permission']['permission']['delete']) --}}
+                                @endisset
+                                @isset(auth()->user()->role->permission['permission']['permission']['delete'])
                                     <button class="btn btn-danger">Delete</button>
-                                {{-- @endisset --}}
+                                @endisset
                             </form>
                         </td>
                     </tr>

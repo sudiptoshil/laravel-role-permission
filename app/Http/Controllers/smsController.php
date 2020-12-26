@@ -7,12 +7,10 @@ use App\Notifications\InvoicePaid;
 use Nexmo\Laravel\Facade\Nexmo;
 class smsController extends Controller
 {
-    
+
 
     public function index()
     {
-    	
-
 		$basic  = new \Nexmo\Client\Credentials\Basic('7fb1f3c6', '2fzLPFLUSJk7hKPT');
 		$client = new \Nexmo\Client($basic);
 
@@ -32,7 +30,7 @@ class smsController extends Controller
     //         'text' => 'Using the facade to send a message.'
     //     ]);
 
- 
+
     }
 
     // public function store()

@@ -20,9 +20,18 @@
                         <a href="#" class="list-group-item list-group-item-action active">
                             Dashboard
                         </a>
-                        <a href="" class="list-group-item list-group-item-action">User</a>
-                        <a href="{{ route('role.index') }}" class="list-group-item list-group-item-action">Roles</a>
-                        <a href="{{ route('permission.index') }}" class="list-group-item list-group-item-action">Permission</a>
+                        {{-- {{ Auth()->user()->role->permission }} for testing purpose
+                        --}}
+                        @isset(Auth()->user()->role->permission['permission']['user']['list'])
+                            <a href="{{ route('user.index') }}" class="list-group-item list-group-item-action">User</a>
+                        @endisset
+                        @isset(Auth()->user()->role->permission['permission']['role']['list'])
+                            <a href="{{ route('role.index') }}" class="list-group-item list-group-item-action">Roles</a>
+                        @endisset
+                        @isset(Auth()->user()->role->permission['permission']['permission']['list'])
+                            <a href="{{ route('permission.index') }}"
+                                class="list-group-item list-group-item-action">Permission</a>
+                        @endisset
                     </div>
                 </div>
             </div>

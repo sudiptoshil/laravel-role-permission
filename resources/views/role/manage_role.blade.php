@@ -3,7 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
+                @isset(Auth()->user()->role->permission['permission']['role']['add'])
                 <a href="{{ route('role.create') }}" type="button" class="btn btn-primary">Add Role</a>
+                @endisset
                 <br />
                 <br />
                 <table class="table">
@@ -24,10 +26,13 @@
                                         <form action="{{ route('role.destroy', $v_role->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
+                                            @isset(Auth()->user()->role->permission['permission']['role']['edit'])
                                             <a href="{{ route('role.edit', $v_role->id) }}" type="button"
                                                 class="btn btn-warning">Edit</a>
-
+                                            @endisset
+                                            @isset(Auth()->user()->role->permission['permission']['role']['delete'])
                                             <button type="submit" class="btn btn-danger">Delete</button>
+                                            @endisset
                                         </form>
                                     </td>
 
